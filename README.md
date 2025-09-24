@@ -2,12 +2,19 @@
 x86-64 Malware Crypter built in Rust for Windows with Anti-VM, powered by memexec
 
 ## Usage
-1. Put your Portable Executable in /crypt/ 
-2. In /crypt/ `cargo run <name_of_pe.exe>` 
-(will output encrypted_bytes.bin and key.txt)
-3. move encrypted_bytes.bin and key.txt to /stub/src/
-4. In /stub/ `cargo build --target x86_64-pc-windows-gnu --release` or build without `--release` to keep debug symbols
-5. compiled exe will be in /stub/target/debug/ named "stub.exe"
+
+### Single File
+1. Put your .exe in `/crypt/`
+2. `cd crypt && cargo run <filename.exe>`
+3. `mv encrypted_Input.bin key.txt ../stub/src/`
+4. `cd ../stub && cargo build --target x86_64-pc-windows-gnu --release`
+5. Your encrypted exe is in `stub/target/x86_64-pc-windows-gnu/release/stub.exe`
+
+### Batch Processing (Multiple Files)
+```bash
+./batch.sh /path/to/folder/with/exe/files
+```
+Output: `batch_output/` folder with `{filename}_encrypted.exe` files
 
 ### Supported targets
 - Windows x86-64
