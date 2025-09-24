@@ -12,7 +12,7 @@ x86-64 Malware Crypter built in Rust for Windows with Anti-VM, powered by memexe
 
 ### Batch Processing (Multiple Files)
 ```bash
-./batch.sh /path/to/folder/with/exe/files
+./simple_batch.sh /path/to/folder/with/exe/files
 ```
 Output: `batch_output/` folder with `{filename}_encrypted.exe` files
 
